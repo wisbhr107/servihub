@@ -63,7 +63,7 @@ public final class Llancador {
         try (BufferedReader r = new BufferedReader(new InputStreamReader(flux, StandardCharsets.UTF_8))) {
             String linia;
             // TODO FORAT 04 · Llegeix la línia següent del lector r. Quan arriba l'EOF, ha de valdre null.
-            while ((linia = Forat.n(4)) != null) {
+            while ((linia = r.readLine()) != null) {
                 text.add(linia);
             }
         }
