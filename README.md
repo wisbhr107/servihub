@@ -2,7 +2,7 @@
 
 MP0490 Programació de serveis i processos · DAM2 · curs 2026-27 · PratFP
 
-**Alumne/a:** _escriu aquí el teu nom i cognoms_
+**Alumne/a:** Wassim Bouhjar
 
 Aquest projecte **ja compila**, però li falten **20 línies de codi**. Cada línia que falta és un
 **forat**. Quan els omplis tots, el programa funcionarà i les **25 proves** de `LlancadorTest` sortiran en verd.

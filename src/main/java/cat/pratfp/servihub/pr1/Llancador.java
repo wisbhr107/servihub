@@ -289,6 +289,6 @@ public final class Llancador {
      */
     public static long pidDeServiHub() {
         // TODO FORAT 20 · Retorna el PID del procés actual (sessió 2, Ex1ProcessosDelSistema).
-        return Forat.n(20);
+        return ProcessHandle.current().pid();
     }
 }
