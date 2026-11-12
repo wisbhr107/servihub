@@ -175,16 +175,16 @@ public final class Llancador {
         long inici = System.currentTimeMillis();
         Process p = new ProcessBuilder(ordre).inheritIO().start();
         // TODO FORAT 12 · Espera el fill com a màxim «segons» segons. haAcabat ha de dir si ha acabat dins del temps.
-        boolean haAcabat = Forat.n(12);
+        boolean haAcabat = p.waitFor(segons, TimeUnit.SECONDS);
         Estat estat;
         if (haAcabat) {
             estat = Estat.segonsCodi(p.exitValue());
         } else {
             // TODO FORAT 13 · S'ha passat de temps: demana-li amablement que acabi.
-            Forat.n(13);
+            p.destroy();
             if (!p.waitFor(2, TimeUnit.SECONDS)) {
                 // TODO FORAT 14 · Al cap de 2 segons encara és viu: mata'l a la força.
-                Forat.n(14);
+                p.destroyForcibly();
                 p.waitFor();
             }
             estat = Estat.AVORTADA;
