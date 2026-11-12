@@ -146,12 +146,12 @@ public final class Llancador {
             throws IOException, InterruptedException {
         Process p = new ProcessBuilder(ordre).start();
         // TODO FORAT 10 · Posa-hi el flux pel qual el pare ESCRIU a l'entrada estàndard del fill.
-        PrintWriter capAlFill = new PrintWriter(new OutputStreamWriter(Forat.n(10), StandardCharsets.UTF_8), true);
+        PrintWriter capAlFill = new PrintWriter(new OutputStreamWriter(p.getOutputStream(), StandardCharsets.UTF_8), true);
         for (String linia : linies) {
             capAlFill.println(linia);
         }
         // TODO FORAT 11 · Ja no hi ha més línies: fes que el fill rebi l'EOF (si no, es queda esperant per sempre).
-        Forat.n(11);
+        capAlFill.close();
         String sortida = llegeixTot(p.getInputStream());
         p.waitFor();
         return sortida;
