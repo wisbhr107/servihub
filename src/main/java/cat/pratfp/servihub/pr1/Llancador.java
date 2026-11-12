@@ -124,7 +124,7 @@ public final class Llancador {
             throws IOException, InterruptedException {
         ProcessBuilder pb = new ProcessBuilder(ordre);
         // TODO FORAT 09 · Afegeix TOTES les variables del mapa entorn a l'entorn del fill (abans de start()).
-        Forat.n(9);
+        pb.environment().putAll(entorn);
         Process p = pb.start();
         String sortida = llegeixTot(p.getInputStream());
         p.waitFor();
